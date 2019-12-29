@@ -1,0 +1,12 @@
+- MyBatis开发的基本配置:
+    - 实体类
+    - Mapper接口
+    - Mapper.xml 
+- 问题：
+    - 当参与的业务表太多，都需要创建实体类，Mapper接口，Mapper.xml文件比较麻烦，而且里面没有什么复杂逻辑。
+    - MyBatis提供了一种自动化配置方案，针对数据表自动生成MyBatis所需要的各种资源：实体类，Mapper接口，Mapper.xml文件
+    - 如果是表之间的级联关系，逆向功能无法自动创建，手动补全级联映射。
+- MyBatis Generator: MBG
+    - 依赖：mybatis-generator-core 
+    - generatorConfig.xml: jdbcConnection, javaModelGenerator, sqlMapGenerator, javaClientGenerator, table..
+    - 创建Main类，执行生成资源的代码

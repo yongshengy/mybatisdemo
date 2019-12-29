@@ -1,0 +1,16 @@
+- 动态SQL是为了减少手动拼写SQL的工作量，减少重复代码
+- if标签
+    - 如果参数不传递，那么默认是null，而sql默认是and拼接，会得到null结果
+    - 使用if过滤 <if test="username!=null">
+- where标签
+    - 接着上面部分，如果第一个where条件也有if标签，而且没有传值，会出现报错的情况。
+    - 使用where标签将if条件括起来
+- choose, when标签
+    - 类似if标签，`<where> <choose><when test="id!=null"> id = #{id}...`
+- trim标签
+    - trim标签中的prefix和suffix属性会被用于生成实际的SQL语句，会和标签内部的语句拼接。
+    - 如果有prefixOverrides或suffixOverrides会自动将其删除。
+- set标签
+    - update操作，自动选择参数生成sql
+- foreach标签
+    - in语句使用
