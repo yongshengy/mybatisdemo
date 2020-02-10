@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="local.test.mybatis.UserRepository">
+    <select id="findByUser" parameterType="local.test.mybatis.User" resultType="local.test.mybatis.User">
+        select * from t_user
+        <where>
+            <if test="id!=null">
+                id = #{id}
+            </if>
+            <if test="username!=null">
+                username = #{username}
+            </if>
+            <if test="password!=null">
+                password = #{password}
+            </if>
+            <if test="age!=null">
+                password = #{age}
+            </if>
+        </where>
+<!-- demos:
+        <where>
+            <choose>
+                <when test="id!=null">
+                    id = #{id}
+                </when>
+                <when test="username!=null">
+                    username = #{username}
+                </when>
+                <when test="password!=null">
+                    password = #{password}
+                </when>
+                <when test="age!=null">
+                    password = #{age}
+                </when>
+            </choose>
+        </where>
+
+        <trim prefix="where" prefixOverrides="and">
+            <if test="id!=null">
+                id = #{id}
+            </if>
+            <if test="username!=null">
+                and username = #{username}
+            </if>
+            <if test="password!=null">
+                and password = #{password}
+            </if>
+            <if test="age!=null">
+                and password = #{age}
+            </if>
+        </trim>
+        <where>
+            <foreach collection="ids" open="id in (" close=")" item="id" separator=",">
+            // ids 这样取值是从POJO参数中取的集合，如果是一般参数 这里需要使用${}
+                #{id}
+            </foreach>
+        </where>
+-->
+
+    </select>
+    <!--
+    Where:
+        where - if
+        where - choose - when
+        trim - if (where/and)
+    Update - set:
+        set - if
+    In:
+        where - foreach
+    -->
+
+</mapper>

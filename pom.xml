@@ -11,6 +11,11 @@
     <modules>
         <module>demo</module>
         <module>my-mybatis</module>
+        <module>demo-mapper</module>
+        <module>demo-mbg</module>
+        <module>demo-lazyload</module>
+        <module>demo-cache</module>
+        <module>demo-dynamicsql</module>
     </modules>
 
 </project>
